@@ -47,6 +47,7 @@ public class BallProjection : MonoBehaviour
         {
             clonedBalls[i].ResetThisBall(levelManager.GetAllBalls()[i].GetPos());
             levelManager.GetAllBalls()[i].ResetLineRenderer();
+            levelManager.GetAllBalls()[i].SetNewPointForLineRenderer(clonedBalls[i].GetPos());
         }
         controlBallCloned.GetForce(posOfFinger);
         for (int i = 0; i < physicsFramesToCalculate; i++)

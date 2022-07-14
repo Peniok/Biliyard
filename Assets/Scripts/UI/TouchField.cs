@@ -41,9 +41,9 @@ public class TouchField : MonoBehaviour
             Pressed = false;
             if (levelManager.CanContinuePlay())
             {
-                lineRenderer.positionCount = 0;
 
                 EventManager.PointerUp(CastRay(OldPos));
+                lineRenderer.positionCount = 0;
             }
         }
     }
@@ -64,8 +64,8 @@ public class TouchField : MonoBehaviour
             Pressed = false;
             if (levelManager.CanContinuePlay())
             {
-                lineRenderer.positionCount = 0;
                 EventManager.PointerUp(CastRay(Input.mousePosition));
+                lineRenderer.positionCount = 0;
             }
             
         }
@@ -92,7 +92,7 @@ public class TouchField : MonoBehaviour
     {
         lineRenderer.positionCount = 2;
         lineRenderer.SetPosition(1, pos);
-        lineRenderer.SetPosition(0, controllBall.GetPos()) ;
+        lineRenderer.SetPosition(0, controllBall.GetPos() - (controllBall.GetPos() - pos).normalized*10) ;
 
     }
 }
